@@ -1,0 +1,22 @@
+@media (max-width: 576px) {
+  header > nav > ul,
+  header > nav > ul > li {
+    border-width: 0px !important;
+  }
+  header > nav > ul > li {
+    padding: 0.5rem;
+  }
+
+  /* Certificate border */
+  /* Remove vertical border */
+  #certificate .item::before {
+    display: none;
+  }
+  #certificate .item::after {
+    border-top-width: 1px !important;
+  }
+
+  #project table td:nth-child(1) {
+    white-space: unset;
+  }
+}

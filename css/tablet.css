@@ -1,0 +1,14 @@
+@media (max-width: 992px) {
+  header > nav li.profile {
+    width: 80px;
+  }
+  header > nav > ul > li {
+    border-right-width: 1px !important;
+  }
+  #profile > .row > * > * {
+    max-width: unset;
+  }
+  #certificate .item img {
+    width: 100%;
+  }
+}

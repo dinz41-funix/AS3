@@ -1,0 +1,421 @@
+d-inline-block* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a:hover {
+  color: #199cdb;
+}
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding-bottom: 3rem;
+}
+ul {
+  list-style: none;
+}
+
+/* override bootstrap */
+ol,
+ul {
+  padding-left: unset;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-bottom: 0;
+}
+
+/* Banner backdrop*/
+#banner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background-color: #0007;
+}
+
+/* utilities classes */
+.bg-c1 {
+  background-color: #199cdb;
+}
+.text-inherit-child *,
+.text-inherit-child a,
+.text-inherit-child a:is(:hover, :link, :visited) {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text-inherit,
+a.text-inherit:is(:hover, :link, :visited) {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.text-c1 {
+  color: #199cdb;
+}
+.border-e1 {
+  border: 1px solid #eee;
+}
+img.img-flow {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+
+/* Navbar */
+header > nav > ul {
+  border: 0px solid #eee;
+  border-left-width: 1px;
+}
+header > nav > ul > li {
+  border-right: inherit;
+  border-right-width: 1px;
+  padding: 1rem 1.5rem;
+}
+
+header > nav li i {
+  color: #199cdb;
+}
+header > nav li a:is(:hover, :link, :visited) {
+  color: inherit;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header > nav > ul > li:is(:nth-child(2), :nth-child(3)) {
+  border-right-width: 0px;
+}
+
+header > nav li.profile {
+  width: 200px;
+  position: relative;
+}
+
+header > nav li.profile > * {
+  display: none;
+}
+
+header > nav li.profile > .avatar > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+header > nav li.profile > .avatar {
+  display: flex;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  padding: 0.5rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* Profile */
+#profile > .row > * {
+  padding: 4rem 2rem;
+}
+
+#profile > .row > * > * {
+  width: 100%;
+  max-width: 600px;
+}
+
+#profile .el-target {
+  background-color: #f5f5f5;
+}
+#profile .el-info {
+  background-color: #f0f0f0;
+}
+
+#profile .el-info li > strong::after {
+  content: " :";
+  font-weight: normal;
+}
+
+/* Career */
+#career .item > .content {
+  border: 1px solid #eee;
+}
+
+/* Chỉ hiển thị phần đầu tiên của content nếu item chưa được show */
+#career .item:not(.show) > .content > *:not(:first-child) {
+  display: none;
+}
+
+#career .item:hover .view-more {
+  opacity: 1;
+}
+
+#career .item .view-more > * {
+  display: none;
+}
+
+#career .item.show .view-more .less {
+  display: unset;
+}
+
+#career .item:not(.show) .view-more .more {
+  display: unset;
+}
+
+#career .view-more > i {
+  font-size: inherit !important;
+}
+
+#career .item .view-more {
+  background-color: #f5f6bb;
+  color: black;
+  border-radius: 999px;
+  padding: 0.5em 1em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  display: inline-block !important;
+  opacity: 0;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Luôn hiện nút hover cho thiết bị ko có tính năng hover */
+@media (hover: none) {
+  #career .item .view-more {
+    opacity: 1;
+  }
+}
+#career .item > .content i {
+  font-size: 2.5em;
+  color: #888;
+}
+
+#career .timeline {
+  display: grid;
+  gap: 1.5rem;
+}
+#career .timeline > li {
+  padding-left: 1.8rem;
+}
+
+#career .timeline > li > h3 {
+  position: relative;
+  font-size: 1rem;
+}
+#career .timeline > li > h3:before {
+  content: "";
+  position: absolute;
+  width: 0.6em;
+  height: 0.6em;
+  left: -1.8rem;
+  top: 0.3em;
+  margin-right: 1.5rem;
+  border-radius: 50%;
+  background-color: #199cdb;
+  margin-right: 1.5rem;
+}
+
+#career .timeline .time {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+#career .timeline .time > *:not(:last-child)::after {
+  content: " - ";
+}
+
+#career .timeline .time > .now::before {
+  content: "Hiện tại";
+  color: white;
+  background-color: #199cdb;
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5em;
+}
+#career .timeline .content {
+  margin-top: 0.5rem;
+  color: #888;
+}
+
+#career .timeline .content li::before {
+  content: "- ";
+}
+
+#hobby > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#hobby > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #888;
+}
+
+#hobby ul i {
+  font-size: 2rem;
+  display: flex;
+  width: 1.8em;
+  height: 1.8em;
+  justify-content: center;
+  align-items: center;
+  color: #199cdb !important;
+  border: 1px solid #199cdb;
+  border-radius: 50%;
+}
+
+#career ul.levels {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+#career ul.levels > li {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#career ul.levels > li > * {
+  font-size: 1rem;
+}
+
+#career ul.levels .bar {
+  width: 100%;
+  color: transparent;
+  display: flex;
+  gap: 0.8rem;
+  user-select: none;
+}
+
+/* span has content */
+#career ul.levels .bar > * {
+  display: block;
+  background-color: #199cdb;
+  width: 55px;
+  height: 4px;
+  border-radius: 4px;
+}
+/* span no content */
+#career ul.levels .bar > *:empty {
+  background-color: #eee;
+}
+
+/* Certificate */
+#certificate {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background-color: #f7f7f7;
+}
+
+#certificate .item img {
+  width: 200px;
+}
+
+#certificate .item {
+  gap: 0.7rem;
+  position: relative;
+  border: 0 solid #d6c08d;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+#certificate h3 {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+#certificate .item ul {
+  color: #888;
+}
+
+#certificate .item:nth-child(2n + 1) {
+  padding-right: 1rem;
+}
+#certificate .item:nth-child(2n) {
+  padding-left: 1rem;
+}
+
+/* Certificate border */
+#certificate .item:nth-child(2n + 1):not(:last-child)::before {
+  content: "";
+  border: inherit;
+  right: 0;
+  border-left-width: 1px;
+  position: absolute;
+  height: 100%;
+}
+
+#certificate .item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -1.5rem;
+  left: 0;
+  border: inherit;
+  border-top-width: 1px;
+}
+
+#certificate
+  ul:has(.item:nth-child(2n):last-child)
+  > .item:nth-last-child(-n + 2)::after {
+  border-top-width: 0px;
+}
+
+/* Project */
+#project .item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  padding: 0 !important;
+}
+
+#project .content > *:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem;
+}
+
+#project table {
+  border-collapse: collapse;
+}
+
+#project table td:nth-child(1) {
+  white-space: nowrap;
+}
+
+#project table td {
+  vertical-align: top;
+  padding: 0.75rem;
+}
+
+#project table tr:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+footer > a > i {
+  color: #199cdb !important;
+  font-size: 2rem;
+}
+

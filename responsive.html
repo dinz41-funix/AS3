@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        overflow: hidden;
+        position: relative;
+        font-family: sans-serif;
+        font-size: 16px;
+        height: 100%;
+        width: 100%;
+      }
+      iframe {
+        margin: 0;
+        padding: 0;
+        border: none;
+        margin: 0 auto;
+      }
+      #mode {
+        position: fixed;
+        top: 0;
+        font-size: 1.2rem;
+        user-select: none;
+        color: white;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mode">
+      <div></div>
+    </div>
+    <iframe src="./index.html"></iframe>
+    <script>
+      const iframe = document.querySelector("iframe");
+      const mode = document.querySelector("#mode > *");
+      let idx = +localStorage.wrpIdx || 1;
+      const html = document.querySelector("html");
+      function setPage(i = idx) {
+        idx = localStorage.wrpIdx = i < 1 ? 3 : i > 3 ? 1 : i;
+        const style = iframe.style;
+        switch (idx) {
+          case 1: {
+            mode.textContent = "Desktop";
+            style.minWidth = "1200px";
+            style.maxWidth = "";
+            style.width = `100%`;
+            style.height = `100%`;
+            document.body.style.zoom = `70%`;
+            break;
+          }
+          case 2: {
+            mode.textContent = "Tablet";
+            style.minWidth = "576px";
+            style.maxWidth = "991px";
+            style.width = "100vw";
+            style.height = "100vh";
+            document.body.style.zoom = ``;
+            break;
+          }
+          case 3: {
+            mode.textContent = "Mobile";
+            style.minWidth = "";
+            style.maxWidth = "575px";
+            style.width = "100vw";
+            style.height = "100vh";
+            document.body.style.zoom = ``;
+          }
+        }
+      }
+      function handleKey(evt) {
+        if (!evt.ctrlKey) return;
+        const inc = { "[": -1, "]": 1 }[evt.key];
+        if (inc === undefined) return;
+        setPage(idx + inc);
+      }
+
+      document.addEventListener("keydown", handleKey);
+      iframe.addEventListener("load", function (evt) {
+        iframe.contentWindow.document.addEventListener("keydown", handleKey);
+        setPage(idx);
+      });
+      iframe.focus();
+      window.addEventListener("beforeunload", () => {
+        localStorage.setItem("iframe_top", iframe.contentWindow.pageYOffset);
+      });
+
+      iframe.onload = () => {
+        const top = localStorage.getItem("iframe_top");
+        if (top) {
+          iframe.contentWindow.scrollTo(0, top);
+        }
+      };
+    </script>
+  </body>
+</html>

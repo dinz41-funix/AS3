@@ -1,0 +1,163 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: blue;
+  min-height: 100vh;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* CSS Page */
+article,
+header {
+  max-width: 1200px;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+}
+
+article > * {
+  background-color: #f0f8ff;
+  padding: 1rem 0.7rem;
+}
+
+article h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+article h2 {
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+ul.list-1 {
+  display: grid;
+  gap: 0.5rem;
+}
+
+ul.list-1 > li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+ul.list-1 > li > i {
+  display: block;
+  font-size: 1.5rem;
+  min-width: 50px;
+}
+
+ul.list-1 > li > *:first-child {
+  padding-top: 0.5rem;
+}
+ul.list-1 > li > *:nth-child(2) {
+  display: grid;
+  gap: 0.25rem;
+}
+
+#goals li {
+  border-bottom: 1px solid #ddd;
+}
+
+#scopes h3 {
+  font-size: 1.4rem;
+}
+
+#timeline {
+  grid-row: 1 / span 2;
+  grid-column: -2;
+}
+
+#timeline .idx {
+  font-weight: bold;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #9e88ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #999;
+  color: white;
+  grid-row: span 2;
+}
+
+#timeline li > *:last-child {
+  padding-left: 0.5rem;
+  border-bottom: 1px dashed #199cdb;
+}
+
+#scopes ul {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+#scopes ul li {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+
+#scopes ul li > * {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  article {
+    grid-template-columns: 1fr;
+  }
+  ul.list-1 > li {
+    grid-template-columns: 1fr;
+  }
+
+  ul.list-1 > li > i {
+    justify-self: center;
+    font-size: 2rem;
+  }
+
+  ul.list-1 > li > *:nth-child(2) {
+    padding: 0.5rem;
+    padding-top: 0;
+  }
+
+  #timeline {
+    grid-row: unset;
+  }
+}
