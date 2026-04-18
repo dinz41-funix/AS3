@@ -156,7 +156,9 @@ ul.list-1 > li > *:nth-child(2) {
     padding: 0.5rem;
     padding-top: 0;
   }
-
+  #scopes ul {
+    grid-template-columns: 1fr;
+  }
   #timeline {
     grid-row: unset;
   }
